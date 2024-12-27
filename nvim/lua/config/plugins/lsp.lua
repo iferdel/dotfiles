@@ -5,7 +5,7 @@ return {
     dependencies = {
       {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua", -- only load on lua files since lazydev is intended to be used only for lua to configure lsp for lua with vim
         opts = {
           library = {
             -- See the configuration section for more details
@@ -17,6 +17,8 @@ return {
     },
     config = function()
       require("lspconfig").lua_ls.setup {}
+      require("lspconfig").gopls.setup {}
+
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
