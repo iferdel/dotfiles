@@ -29,6 +29,15 @@ return {
           })
           require('telescope.builtin').find_files(opts)
         end)
+      vim.keymap.set("n", "<space>ep",                       -- ep: edit packages
+        function()
+          local opts = require('telescope.themes').get_ivy({ -- define a local variable cwd wrapped with a telescope theme
+            cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+          })
+          require('telescope.builtin').find_files(opts)
+        end)
+
+      require "config.telescope.multigrep".setup()
     end
   }
 }
