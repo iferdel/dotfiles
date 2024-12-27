@@ -12,8 +12,14 @@ return {
           find_files = {
             --            theme = "ivy" -- default theme (unless it is overriden by specific keymap)
           }
+        },
+        extensions = {
+          fzf = {}
         }
       }
+
+      require('telescope').load_extension('fzf')
+
       vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags)  -- fh: find help
       vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files) -- fd: find directory
       vim.keymap.set("n", "<space>en",                                          -- en: edit neovim config 'dotfiles'
