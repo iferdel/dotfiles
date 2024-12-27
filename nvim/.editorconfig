@@ -1,0 +1,5 @@
+# external tool that enables how we want files to be formatted so both lua and neovim and formatting will agree with this main source of truth.
+[*.lua]
+indent_style = space
+indent_size = 2
+
