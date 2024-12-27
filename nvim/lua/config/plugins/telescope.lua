@@ -10,7 +10,7 @@ return {
       require('telescope').setup {
         pickers = {
           find_files = {
-            --            theme = "ivy" -- default theme (unless it is overriden by specific keymap)
+            theme = "ivy" -- overrides default theme
           }
         },
         extensions = {
@@ -37,7 +37,7 @@ return {
           require('telescope.builtin').find_files(opts)
         end)
 
-      require "config.telescope.multigrep".setup()
+      require('config.telescope.multigrep').setup()
     end
   }
 }
