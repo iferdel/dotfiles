@@ -8,6 +8,13 @@ return {
     },
     config = function()
       vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files)
+      vim.keymap.set("n", "<space>en",                       -- en: edit neovim config 'dotfiles'
+        function()                                           -- scope it into a function to add more customization
+          local opts = require('telescope.themes').get_ivy({ -- define a local variable cwd wrapped with a telescope theme
+            cwd = vim.fn.stdpath("config")
+          })
+          require('telescope.builtin').find_files(opts)
+        end)
     end
   }
 }
