@@ -24,16 +24,20 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
-      config = function() vim.cmd.colorscheme "tokyonight" end
+require("lazy").setup(
+  {
+    change_detection = {
+      notify = false,
     },
-    -- import your plugins
-    { import = "config.plugins" },
-  },
-})
+    spec = {
+      {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        config = function() vim.cmd.colorscheme "tokyonight" end
+      },
+      -- import your plugins
+      { import = "config.plugins" },
+    },
+  })
