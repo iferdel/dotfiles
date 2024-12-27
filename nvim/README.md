@@ -24,6 +24,7 @@ LSP stands for language server protocol, the editor is like the client and this 
 So these two are communicating constantly based on the language of the opened file (and if this language server is active)
 Neovim comes with lsp by default, but in order to make use of it one would need to install the language server that one wants to activate.
 LspAttach attach the server language to whatever file we are currently on.
+:echo executable('gopls') should return 1 and if returns 0 means the language server for gopls has not been found by neovim
 ### LSP keymaps (:help lsp)
 - normal mode: =Q // formats for indentation
 - normal mode: vim.lsp.buf.format() formats the entire file
