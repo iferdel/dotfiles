@@ -5,6 +5,8 @@
 - In command mode, prepending :! would allow to execute shell commands like, for example, :! ls .
 - % is a placeholder for the 'current file', so source % would run the current file.
 
+Key to all --> checkhealth command for plugins
+
 ## Tutor
 :Tutor shows a tutorial to use certain features that makes neovim usable for newcomers. It doesn't cover all, but enough to get a good grasp and some interesting stuff that at least I was not aware of before, for example, **In normal mode, using K over a function, call or whatever would show a description in a modal popup fashion**. 
 
@@ -41,3 +43,6 @@ insert mode: **There is a family of autocompletion
 ### cool combinations:
 V%: on a parenthesis, allows to select a parenthesis thing
 
+## Telescope
+:Telescope builtin // shows all possible options
+In looking modal, <C-n> and <C-p> help navegate the files (instead of using arrowkeys)
