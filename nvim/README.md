@@ -46,3 +46,4 @@ V%: on a parenthesis, allows to select a parenthesis thing
 ## Telescope
 :Telescope builtin // shows all possible options
 In looking modal, <C-n> and <C-p> help navegate the files (instead of using arrowkeys)
+in insert mode (telescope panel) <C-/> would show insert mode key maps

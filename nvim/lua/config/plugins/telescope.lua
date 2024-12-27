@@ -10,10 +10,11 @@ return {
       require('telescope').setup {
         pickers = {
           find_files = {
-            theme = "ivy" -- default theme (unless it is overriden by specific keymap)
+            --            theme = "ivy" -- default theme (unless it is overriden by specific keymap)
           }
         }
       }
+      vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags)
       vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files)
       vim.keymap.set("n", "<space>en",                       -- en: edit neovim config 'dotfiles'
         function()                                           -- scope it into a function to add more customization
