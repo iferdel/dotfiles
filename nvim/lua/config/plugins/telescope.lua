@@ -7,6 +7,13 @@ return {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' } -- recommendation from source repo, it makes telescope search faster
     },
     config = function()
+      require('telescope').setup {
+        pickers = {
+          find_files = {
+            theme = "ivy" -- default theme (unless it is overriden by specific keymap)
+          }
+        }
+      }
       vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files)
       vim.keymap.set("n", "<space>en",                       -- en: edit neovim config 'dotfiles'
         function()                                           -- scope it into a function to add more customization
