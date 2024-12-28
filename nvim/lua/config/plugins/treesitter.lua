@@ -5,8 +5,8 @@ return {
     config = function()
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
-          "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline",                                                                        -- default
-          "python", "go", "asm", "bash", "bicep", "css", "dockerfile", "groovy", "helm", "html", "json", "nginx", "sql", "terraform", "tmux", "toml", "yaml" -- custom
+          "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline",                                                                       -- default
+          "python", "go", "asm", "bash", "bicep", "css", "dockerfile", "groovy", "helm", "html", "json", "nginx", "sql", "terraform", "toml", "yaml" -- custom
         },
         sync_install = false,
         auto_install = false,

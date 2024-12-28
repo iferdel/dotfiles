@@ -1,5 +1,4 @@
 # dotfiles
 
-This repository houses my personal dotfiles for Neovim, tmux, Bash, and Git.
-
-- one can do anything tmux can do but with neovim. In cases where neovim installation is not affordable, but tmux is, thats when tmux config folder would be used.
+This repository houses my personal dotfiles for Neovim, Bash, and Git.
+- tmux is not in the list since neovim covers what tmux is capable of and thus reducing the overwelming complexity of having more than needed keymaps and between two pieces of software.
