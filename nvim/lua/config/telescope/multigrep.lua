@@ -48,6 +48,12 @@ end
 
 M.setup = function()
   vim.keymap.set("n", "<space>fg", live_multigrep)
+  vim.keymap.set("n", "<space>fo", function() -- obsidian vault
+    live_multigrep({
+      cwd = "~/Documents/ifd/iferdel/"
+    })
+  end
+  )
 end
 
 return M
