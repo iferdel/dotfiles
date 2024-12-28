@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     enabled = true,
     dependencies = {
+      'saghen/blink.cmp',
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files since lazydev is intended to be used only for lua to configure lsp for lua with vim
@@ -16,8 +17,9 @@ return {
       },
     },
     config = function()
-      require("lspconfig").lua_ls.setup {}
-      require("lspconfig").gopls.setup {}
+      local capabilities = require('blink.cmp').get_lsp_capabilities() -- capabilities is a way to set communication between lsp and autocompletion from blink.cmp
+      require("lspconfig").lua_ls.setup { capabilities = capabilities }
+      require("lspconfig").gopls.setup { capabilities = capabilities }
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
