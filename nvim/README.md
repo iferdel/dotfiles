@@ -48,3 +48,9 @@ V%: on a parenthesis, allows to select a parenthesis thing
 :Telescope builtin // shows all possible options
 In looking modal, <C-n> and <C-p> help navegate the files (instead of using arrowkeys)
 in insert mode (telescope panel) <C-/> would show insert mode key maps
+
+
+### using windows commands
+shortcut gt helps moving between tabs
+<C-T> moves current window to a new tab
+:help CTRL(tab) to show all possible options regarding windows commands
