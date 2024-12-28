@@ -54,3 +54,21 @@ in insert mode (telescope panel) <C-/> would show insert mode key maps
 shortcut gt helps moving between tabs
 <C-T> moves current window to a new tab
 :help CTRL(tab) to show all possible options regarding windows commands
+
+### quickfix
+using grr (lsp references) uses quickfix
+using <C-q> in search mode using telescope
+:copen or :cclose
+cool reeplacement with checks -> :cdo s/something/something-else/gc -- g is for global and c is for check
+cdo is like quickfix do 
+
+#### see all errors
+:lua vim.diagnostic.setqflist()
+
+### substitutes
+:help substitute
+
+
+### terminal
+neovim builtin terminal
+:help :term
