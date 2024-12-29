@@ -52,4 +52,7 @@ end
 
 -- Example usage:
 -- Create a floating window with default dimensions
+-- Everytime Floaterminal is called the float terminal would toggle but keeping the same buffer as before (buffer meaning as the text that is in there in memory)
+-- It could be used to run a background task even, like installing, updating or running any process.
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
+vim.keymap.set({ "n", "t" }, "<space>tt", toggle_terminal)
