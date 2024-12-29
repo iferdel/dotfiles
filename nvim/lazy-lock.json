@@ -9,6 +9,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "17678b00fa5c2712890a0ec2e269d0a4de1207df" },
   "oil.nvim": { "branch": "master", "commit": "ba858b662599eab8ef1cba9ab745afded99cb180" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
+  "render-markdown.nvim": { "branch": "main", "commit": "ba6253d9673daf0cf394b87b2c2ecb7630944c7d" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "dae2eac9d91464448b584c7949a31df8faefec56" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "tokyonight.nvim": { "branch": "main", "commit": "45d22cf0e1b93476d3b6d362d720412b3d34465c" }
