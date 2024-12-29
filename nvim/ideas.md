@@ -4,3 +4,4 @@
 4) render markdown in nvim buffer view
 5) resize panes of telescope preview (give more width to preview and less to filesearch. Even reduce in 1 point the font size within telescope)
 6) oil icons
+7) [dbee plugin](https://github.com/kndndrj/nvim-dbee)

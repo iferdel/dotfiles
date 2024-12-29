@@ -72,3 +72,6 @@ cdo is like quickfix do
 ### terminal
 neovim builtin terminal
 :help :term
+
+### Oil
+oil is a directory viewer, not a filetree

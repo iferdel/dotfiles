@@ -14,13 +14,11 @@ return {
         },
 
         keymaps = {
-          ["<C-h>"] = false, -- deactivate C-h for splitting window with selected file in oil
+          ["<C-h>"] = false, -- deactivate C-h for splitting window with selected file in oil since its already in use to navigate along windows since its already in use to navigate along windows
           ["<M-h>"] = "actions.select_split",
         },
         -- Open parent directory in current window
         vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = 'Open parent directory' }),
-        -- Open parent directory in floating window
-        vim.keymap.set("n", "<space>-", require("oil").toggle_float),
       }
     end,
 
