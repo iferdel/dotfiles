@@ -56,7 +56,7 @@ return {
 
         -- Show documentation when selecting a completion item (useful for usage of new libraries or new type of projects)
         documentation = {
-          auto_show = false,
+          auto_show = true,
           auto_show_delay_ms = 1000,
           update_delay_ms = 100,
           window = {
