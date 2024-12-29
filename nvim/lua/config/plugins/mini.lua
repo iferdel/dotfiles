@@ -9,4 +9,14 @@ return {
       statusline.setup { use_icons = true }
     end
   },
+  {
+    'echasnovski/mini.icons',
+    version = false,
+    enabled = true,
+    config = function()
+      require("mini.icons").setup({
+
+      })
+    end,
+  },
 }

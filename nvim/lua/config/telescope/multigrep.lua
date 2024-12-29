@@ -31,6 +31,7 @@ local live_multigrep = function(opts)
       return vim.tbl_flatten {
         args,
         { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
+        opts.ignore_obsidian_files,
       }
     end,
     entry_maker = make_entry.gen_from_vimgrep(opts),
@@ -48,9 +49,10 @@ end
 
 M.setup = function()
   vim.keymap.set("n", "<space>fg", live_multigrep)
-  vim.keymap.set("n", "<space>fo", function() -- obsidian vault
+  vim.keymap.set("n", "<space>fo", function()           -- obsidian vault
     live_multigrep({
-      cwd = "~/Documents/ifd/iferdel/"        -- dependant, maybe a better way to setup
+      cwd = "~/Documents/ifd/iferdel/",                 -- dependant, maybe a better way to setup
+      ignore_obsidian_files = { "--glob=!excalidraw" }, -- no need to search for excalidraw files
     })
   end
   )

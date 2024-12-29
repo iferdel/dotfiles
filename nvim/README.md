@@ -75,3 +75,6 @@ neovim builtin terminal
 
 ### Oil
 oil is a directory viewer, not a filetree
+
+### nerd fonts
+needed for oil glyphs (and because its cool to have a good font) https://www.nerdfonts.com/font-downloads
