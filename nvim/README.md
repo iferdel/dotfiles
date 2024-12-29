@@ -13,6 +13,7 @@ Key to all --> checkhealth command for plugins
 useful default shortcuts:
 normal mode: gx // opens browser to link
 normal mode: <C-f> // moves screen (scroll down). Check difference between the remap for using <C-d>zz
+normal mode: <C-o> // goes to previous opened buffer window
 
 useful help sections:
 ins-completion // for autocomplete shortcuts
