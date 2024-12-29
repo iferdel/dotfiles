@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>co", function()
+  -- vim.cmd("!xdg-open 'obsidian://open?vault=iferdel&file=%'")
+  --vim.cmd("!open -e 'obsidian://open?vault=iferdel&file=%'")
+  vim.ui.open('obsidian://open?vault=iferdel&file=%%')
+end, { desc = "Open in Obsidian", noremap = true, silent = true })
