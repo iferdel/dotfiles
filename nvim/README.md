@@ -1,3 +1,36 @@
+´´´
+.
+├── README.md
+├── after
+│   ├── README.md
+│   └── ftplugin
+│       ├── README.md
+│       ├── go.lua
+│       ├── lua.lua
+│       └── markdown.lua
+├── ideas.md
+├── init.lua
+├── lazy-lock.json
+├── lua
+│   └── config
+│       ├── lazy.lua
+│       ├── plugins
+│       │   ├── completion.lua
+│       │   ├── dbee.lua
+│       │   ├── harpoon.lua
+│       │   ├── lsp.lua
+│       │   ├── markdown.lua
+│       │   ├── mini.lua
+│       │   ├── oil.lua
+│       │   ├── telescope.lua
+│       │   └── treesitter.lua
+│       └── telescope
+│           ├── README.md
+│           └── multigrep.lua
+└── plugin
+    └── floaterminal.lua
+´´´
+
 - To install an use most of the features of nvim one may be better off downloading and installing nightly version by building from (source)[https://github.com/neovim/neovim/blob/master/BUILD.md]. 
 - To specify different nvim configurations one could use NVIM_APPNAME=<name> to create a 'namespaced' configuration and then one may even use aliases for this to reduce boilerplate each time one wants to use neovim with this specific config. For example, alias nvim=vim but now alias nvimf=NVIM_APPNAME=f nvim
 
