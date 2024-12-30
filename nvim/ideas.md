@@ -1,7 +1,5 @@
 - [github copilot plugin](https://github.com/github/copilot.vim)
-- [harpoon plugin](https://github.com/ThePrimeagen/harpoon)
 - [git diff plugin](https://github.com/sindrets/diffview.nvim)
-- resize panes of telescope preview (give more width to preview and less to filesearch. Even reduce in 1 point the font size within telescope)
 - [dbee plugin](https://github.com/kndndrj/nvim-dbee)
 - change border color to white or whatever best contrast in windows panes separation
 - search in telescope for multigrep live search with the flexibility for file search after the double space separating the two search items (the first one is the one used in the grep in the file and the second one is the one matching filenames/filetypes with regex)

@@ -8,10 +8,15 @@ return {
     },
     config = function()
       require('telescope').setup {
+        defaults = {
+          layout_config = {
+            preview_width = 0.6, -- portion of width devoted to preview
+          },
+        },
         pickers = {
           find_files = {
             theme = "ivy" -- overrides default theme
-          }
+          },
         },
         extensions = {
           fzf = {}
