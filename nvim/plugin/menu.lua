@@ -35,4 +35,3 @@ vim.api.nvim_create_autocmd("MenuPopup", {
     end
   end,
 })
--- TODO: Add autocoommand
