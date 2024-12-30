@@ -112,3 +112,5 @@ oil is a directory viewer, not a filetree
 
 ### nerd fonts
 needed for oil glyphs (and because its cool to have a good font) https://www.nerdfonts.com/font-downloads. Depending on the emulator, in kitty there is an issue that is solved by https://github.com/kovidgoyal/kitty/issues/1463#issuecomment-2438394737
+
+### diff between <C-t> and <C-o>
