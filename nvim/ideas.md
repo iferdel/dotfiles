@@ -1,3 +1,4 @@
 - [github copilot plugin](https://github.com/github/copilot.vim)
 - [dbee plugin](https://github.com/kndndrj/nvim-dbee)
 - search in telescope for multigrep live search with the flexibility for file search after the double space separating the two search items (the first one is the one used in the grep in the file and the second one is the one matching filenames/filetypes with regex)
+
