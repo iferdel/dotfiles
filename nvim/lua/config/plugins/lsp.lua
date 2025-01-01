@@ -21,6 +21,8 @@ return {
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
       require("lspconfig").gopls.setup { capabilities = capabilities }
 
+      vim.keymap.set("i", "<C-o>", vim.lsp.buf.signature_help)
+
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
