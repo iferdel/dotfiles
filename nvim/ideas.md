@@ -1,4 +1,4 @@
 - [github copilot plugin](https://github.com/github/copilot.vim)
 - [dbee plugin](https://github.com/kndndrj/nvim-dbee)
 - search in telescope for multigrep live search with the flexibility for file search after the double space separating the two search items (the first one is the one used in the grep in the file and the second one is the one matching filenames/filetypes with regex)
-
+- search in telescope for specific package like amqp. multigrep. a way to append to a list of packages in a buffer (find location or presave it). maybe a harpoon like list, and then sesrch though those folders (since for a package is a set of files, not just one)
