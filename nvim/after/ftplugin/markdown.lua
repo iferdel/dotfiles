@@ -1,3 +1,8 @@
+local set = vim.opt_local
+
+set.number = true
+set.relativenumber = true
+
 vim.keymap.set("n", "<leader>co", function()
   local file_path = vim.fn.expand("%:p") -- Get the full file path of the current buffer
   if file_path and file_path ~= "" then

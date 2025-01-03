@@ -114,7 +114,22 @@ oil is a directory viewer, not a filetree
 needed for oil glyphs (and because its cool to have a good font) https://www.nerdfonts.com/font-downloads. Depending on the emulator, in kitty there is an issue that is solved by https://github.com/kovidgoyal/kitty/issues/1463#issuecomment-2438394737
 
 ### diff between <C-t> and <C-o>
+t stands from tags, and o stands for 'older-position'.
 
 
 ## to see all keymaps: nmap, imap, [mode]map
 help map
+
+## new keymaps based on reading Tutor and neovim user manual 02 december 2025
+normal mode: J --> removes line brake so it concatenates two lines 
+normal mode: ce and cw do the same (deletes til next word and puts one in insert mode)
+normal mode: de deletes to the end of word, dw deletes til the start of next word
+
+### all vim commands
+help index
+
+### get help based on certain error code
+:help E512
+
+### delete word in insert mode
+i_CTRL-W
