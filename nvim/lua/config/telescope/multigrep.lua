@@ -2,6 +2,7 @@ local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
 local conf = require "telescope.config".values
+local md = require "config.os.detection"
 
 local M = {}
 
@@ -49,9 +50,15 @@ end
 
 M.setup = function()
   vim.keymap.set("n", "<space>fg", live_multigrep)
-  vim.keymap.set("n", "<space>fo", function()           -- obsidian vault
+  vim.keymap.set("n", "<space>fo", function() -- obsidian vault
+    local vault_path
+    if md.is_mac() then
+      vault_path = "~/Documents/ifd/iferdel/" -- dependant, maybe a better way to setup
+    elseif md.is_wsl() then
+      vault_path = "/mnt/c/Obsidian/iferdel/" -- dependant, maybe a better way to setup
+    end
     live_multigrep({
-      cwd = "~/Documents/ifd/iferdel/",                 -- dependant, maybe a better way to setup
+      cwd = vault_path,
       ignore_obsidian_files = { "--glob=!excalidraw" }, -- no need to search for excalidraw files
     })
   end
