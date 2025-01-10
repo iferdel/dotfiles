@@ -20,8 +20,8 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities() -- capabilities is a way to set communication between lsp and autocompletion from blink.cmp
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
       require("lspconfig").gopls.setup { capabilities = capabilities }
-      require("lspconfig").dockerls.setup { capabilities = capabilities }
-      require("lspconfig").yamlls.setup { capabilities = capabilities }
+      -- require("lspconfig").dockerls.setup { capabilities = capabilities }
+      -- require("lspconfig").yamlls.setup { capabilities = capabilities }
 
       vim.keymap.set("i", "<C-o>", vim.lsp.buf.signature_help)
 
