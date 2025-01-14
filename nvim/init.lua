@@ -3,6 +3,7 @@ require("config.lazy")
 vim.opt.shiftwidth = 4            -- indentation
 vim.opt.clipboard = "unnamedplus" -- paste whatever is in the clipboard buffer globally
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 5         -- not too much since it generates a strange feeling to the eye
 
 -- workaround for https://github.com/neovim/neovim/issues/31675 Treesitter situation
 vim.hl = vim.highlight

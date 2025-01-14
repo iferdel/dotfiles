@@ -1,4 +1,13 @@
-md = require("config.os.detection")
+local set = vim.opt_local
+
+vim.opt.wrap = false
+
+set.shiftwidth = 2
+set.tabstop = 2
+set.number = true
+set.relativenumber = true
+
+local md = require("config.os.detection")
 
 vim.keymap.set("n", "<leader>co", function()
   local file_path = vim.fn.expand("%:p") -- Full path of current buffer
