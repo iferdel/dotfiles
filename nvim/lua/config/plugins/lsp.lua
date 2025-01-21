@@ -36,6 +36,7 @@ return {
               buffer = args.buf,
               callback = function()
                 vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' } }, apply = true }
               end,
             })
           end
