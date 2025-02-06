@@ -14,6 +14,12 @@ SYMLINK_PAIRS=(
 for PAIR in "${SYMLINK_PAIRS[@]}"; do
     SRC="${PAIR%%|*}"
     DEST="${PAIR##*|}"
+    DEST_DIR="$(dirname "$DEST")"
+
+    if [ ! -d "$DEST_DIR" ]; then
+        echo "Creating directory: $DEST_DIR"
+        mkdir -p "$DEST_DIR"
+    fi
 
     # Debugging output
     echo "SRC:  $SRC"
