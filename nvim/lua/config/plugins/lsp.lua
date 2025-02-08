@@ -42,6 +42,20 @@ return {
           end
         end,
       })
+
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        severity_sort = true,
+        update_in_insert = true,
+
+        float = {
+          show_header = true,
+          border = "rounded",
+          source = "always",
+        },
+      })
     end,
   }
 }
