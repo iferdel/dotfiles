@@ -48,7 +48,7 @@ return {
         signs = true,
         underline = true,
         severity_sort = true,
-        update_in_insert = true,
+        update_in_insert = false,
 
         float = {
           show_header = true,
