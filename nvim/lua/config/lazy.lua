@@ -34,8 +34,12 @@ require("lazy").setup(
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        opts = {},
-        config = function() vim.cmd.colorscheme "tokyonight" end
+        opts = {
+          transparent = true,
+        },
+        config = function()
+          vim.cmd.colorscheme "tokyonight"
+        end
       },
       -- import your plugins
       { import = "config.plugins" },
