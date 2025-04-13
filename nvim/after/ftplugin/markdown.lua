@@ -1,6 +1,6 @@
 local set = vim.opt_local
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 set.shiftwidth = 2
 set.tabstop = 2
