@@ -117,5 +117,47 @@ else
     echo "Not running on macOS or WSL2. No action taken."
 fi
 
-echo "Dotfiles symlink setup completed!"
+#####################################################################
+# 4. Set up `nvimf` wrapper and make it the default Git editor
+#####################################################################
 
+NVIMF_WRAPPER="$HOME/bin/nvimf"
+NVIMF_COMMAND='NVIM_APPNAME=nvim.iferdel.git nvim'
+
+# Create ~/bin if it doesn't exist
+if [ ! -d "$HOME/bin" ]; then
+    echo "Creating $HOME/bin..."
+    mkdir -p "$HOME/bin"
+fi
+
+# Create or overwrite the nvimf wrapper
+echo "#!/usr/bin/env bash" > "$NVIMF_WRAPPER"
+echo "$NVIMF_COMMAND \"\$@\"" >> "$NVIMF_WRAPPER"
+chmod +x "$NVIMF_WRAPPER"
+echo "Wrapper created at $NVIMF_WRAPPER"
+
+# Add ~/bin to PATH in shell config if not already
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    SHELLRC="$HOME/.zshrc"
+else
+    SHELLRC="$HOME/.bashrc"
+fi
+
+if ! grep -q 'export PATH="$HOME/bin:$PATH"' "$SHELLRC"; then
+    echo 'export PATH="$HOME/bin:$PATH"' >> "$SHELLRC"
+    echo "Added ~/bin to PATH in $SHELLRC"
+fi
+
+# Set Git to use nvimf as core.editor (full path)
+if git config --global core.editor &>/dev/null; then
+    echo "Git core.editor is already set. Skipping..."
+else
+    git config --global core.editor "$NVIMF_WRAPPER"
+    echo "Set Git core.editor to $NVIMF_WRAPPER"
+fi
+
+#####################################################################
+# 5. Completed setup
+#####################################################################
+
+echo "Dotfiles symlink setup completed!"
