@@ -14,3 +14,4 @@
 - python lsp
 - python logger
 - sql lsp
+- after standing for too long (3 secs) in word, highlight the word in all its ocurrences in the same viewpoint

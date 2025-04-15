@@ -55,7 +55,8 @@ M.setup = function()
     if md.is_mac() then
       vault_path = "~/Documents/ifd/iferdel/" -- dependant, maybe a better way to setup
     elseif md.is_wsl() then
-      vault_path = "/mnt/c/Obsidian/iferdel/" -- dependant, maybe a better way to setup
+      -- vault_path = "/mnt/c/Obsidian/iferdel/" -- dependant, maybe a better way to setup
+      vault_path = "/mnt/c/Users/489973/Documents/iferdel/" -- dependant, maybe a better way to setup
     end
     live_multigrep({
       cwd = vault_path,
