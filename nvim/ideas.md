@@ -1,4 +1,7 @@
-- a way to add new lines after every comma for long one-line code like json so it parse it
+- en markdown, si es un archivo ubicado en el fichero de obsidian, utilizar template al primer guardado. O que se cree un template al crear el archivo por primera vez. Que el template tenga, la fecha actual en formato %d-%m-%Y, el nombre del archivo y un tags vacío para uno llenar.
+- neovim windows is laggy and sometimes buggy
+- igual que grep para obsidian, tener un find files del fichero de obsidian.
+- a way to add new lines after every comma for long one-line code like json so it parse it.
 - omit vendor folder in golang. Maybe create a specific folder for multigrep in each project like a .gitignore but for search
 - [github copilot plugin](https://github.com/github/copilot.vim)
 - [dbee plugin](https://github.com/kndndrj/nvim-dbee)
