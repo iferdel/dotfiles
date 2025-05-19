@@ -19,8 +19,25 @@ return {
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities() -- capabilities is a way to set communication between lsp and autocompletion from blink.cmp
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
+      if not require("lspconfig.configs").dockerls then
+        require("lspconfig.configs").dockerls = {
+          default_config = {
+            cmd = { "docker-langserver", "--stdio" }, -- https://github.com/docker/docker-language-server
+            filetypes = { "dockerfile" },
+            root_dir = require("lspconfig").util.root_pattern("Dockerfile", ".git"),
+            single_file_support = true,
+          },
+        }
+      end
       require("lspconfig").gopls.setup { capabilities = capabilities }
       require("lspconfig").pylsp.setup { capabilities = capabilities }
+      require("lspconfig").ccls.setup {
+        -- https://github.com/MaskRay/ccls/wiki/Project-Setup
+        init_options = {
+          compilationDatabaseDirectory = "build",
+        },
+        capabilities = capabilities
+      }
       -- require("lspconfig").helm_ls.setup { capabilities = capabilities }
       -- require("lspconfig").postgres_lsp.setup { capabilities = capabilities }
       -- require("lspconfig").sqlls.setup { capabilities = capabilities }
