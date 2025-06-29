@@ -29,7 +29,9 @@ return {
           },
         }
       end
-      require("lspconfig").gopls.setup { capabilities = capabilities }
+      require("lspconfig").gopls.setup {
+        capabilities = capabilities,
+      }
       require("lspconfig").pylsp.setup { capabilities = capabilities }
       require("lspconfig").ccls.setup {
         -- https://github.com/MaskRay/ccls/wiki/Project-Setup
