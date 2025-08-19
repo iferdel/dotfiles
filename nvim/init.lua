@@ -24,6 +24,14 @@ vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>zz", { desc = "while in quickfix, mo
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "in terminal mode, move from insert to normal mode" })
 
 
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('hightlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 vim.api.nvim_create_autocmd('TermOpen',
   { -- customized terminal just like one would do with a file from certain language or extension
     group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
@@ -69,11 +77,3 @@ end, { desc = "Go modules" })
 vim.keymap.set('n', '<leader>gss', function()
   vim.fn.jobstart({ "xdg-open", "https://go-cookbook.com/snippets" })
 end, { desc = "Open Go Cookbook snippets" })
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('hightlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
