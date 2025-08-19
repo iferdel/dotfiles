@@ -32,7 +32,21 @@ return {
       require("lspconfig").gopls.setup {
         capabilities = capabilities,
       }
-      require("lspconfig").pylsp.setup { capabilities = capabilities }
+      require("lspconfig").pylsp.setup {
+        capabilities = capabilities,
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = { "E203", "E501" },
+                maxLineLength = 100,
+              },
+              pyflakes    = { enabled = false },
+              mccabe      = { enabled = false },
+            },
+          },
+        },
+      }
       require("lspconfig").ccls.setup {
         -- https://github.com/MaskRay/ccls/wiki/Project-Setup
         init_options = {
