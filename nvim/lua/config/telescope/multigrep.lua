@@ -49,7 +49,7 @@ local live_multigrep = function(opts)
 end
 
 M.setup = function()
-  vim.keymap.set("n", "<space>fg", live_multigrep)
+  vim.keymap.set("n", "<space>fg", live_multigrep, { desc = "Multigrep" })
   vim.keymap.set("n", "<space>fo", function() -- obsidian vault
     local vault_path
     if md.is_mac() then
@@ -64,8 +64,7 @@ M.setup = function()
       cwd = vault_path,
       ignore_obsidian_files = { "--glob=!excalidraw" }, -- no need to search for excalidraw files
     })
-  end
-  )
+  end, { desc = "Multigrep obsidian vault" })
 end
 
 return M

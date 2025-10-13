@@ -32,15 +32,15 @@ return {
         end,
       }
 
-      vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
-      vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
+      vim.keymap.set("n", "<space>b", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+      vim.keymap.set("n", "<space>gb", dap.run_to_cursor, { desc = "Run to cursor" })
 
       -- Eval under cursor
       vim.keymap.set("n", "<space>?", function()
         require("dapui").eval(nil, { enter = true })
-      end)
+      end, { desc = "Eval under cursor" })
 
-      vim.keymap.set("n", "<F1>", dap.continue)
+      vim.keymap.set("n", "<F1>", dap.continue, { desc = "Continue debugging" })
     end,
   },
 }

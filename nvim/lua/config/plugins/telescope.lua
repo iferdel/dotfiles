@@ -25,8 +25,8 @@ return {
 
       require('telescope').load_extension('fzf')
 
-      vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags)  -- fh: find help
-      vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files) -- fd: find directory
+      vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags, { desc = "Find help tags" })
+      vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files, { desc = "Find files" })
       vim.keymap.set("n", "<space>en",                                          -- en: edit neovim config 'dotfiles'
         function()                                                              -- scope it into a function to add more customization
           local opts = require('telescope.themes').get_ivy({                    -- define a local variable cwd wrapped with a telescope theme
@@ -34,14 +34,14 @@ return {
             hidden = true,
           })
           require('telescope.builtin').find_files(opts)
-        end)
+        end, { desc = "Browse neovim config files" })
       vim.keymap.set("n", "<space>ep",                       -- ep: edit packages
         function()
           local opts = require('telescope.themes').get_ivy({ -- define a local variable cwd wrapped with a telescope theme
             cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
           })
           require('telescope.builtin').find_files(opts)
-        end)
+        end, { desc = "Browse plugin source files" })
 
       require('config.telescope.multigrep').setup()
     end

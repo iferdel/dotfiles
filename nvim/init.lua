@@ -49,7 +49,7 @@ vim.keymap.set("n", "<space>st", function() -- opens a new terminal at the botto
   vim.api.nvim_win_set_height(0, 10)
 
   job_id = vim.b.terminal_job_id
-end)
+end, { desc = "Open bottom terminal" })
 
 -- Go source code navigation with telescope
 vim.keymap.set("n", "<space>gs", function()

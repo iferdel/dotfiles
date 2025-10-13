@@ -17,22 +17,35 @@ return {
       },
     },
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities() -- capabilities is a way to set communication between lsp and autocompletion from blink.cmp
-      require("lspconfig").lua_ls.setup { capabilities = capabilities }
-      if not require("lspconfig.configs").dockerls then
-        require("lspconfig.configs").dockerls = {
-          default_config = {
-            cmd = { "docker-langserver", "--stdio" }, -- https://github.com/docker/docker-language-server
-            filetypes = { "dockerfile" },
-            root_dir = require("lspconfig").util.root_pattern("Dockerfile", ".git"),
-            single_file_support = true,
-          },
-        }
-      end
-      require("lspconfig").gopls.setup {
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+      -- Configure LSP servers using Neovim 0.11+ native API
+      -- Set default capabilities for all servers
+      vim.lsp.config['*'] = {
         capabilities = capabilities,
       }
-      require("lspconfig").pylsp.setup {
+
+      -- Lua Language Server
+      vim.lsp.config.lua_ls = {
+        cmd = { 'lua-language-server' },
+        filetypes = { 'lua' },
+        root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml', '.git' },
+        capabilities = capabilities,
+      }
+
+      -- Go Language Server
+      vim.lsp.config.gopls = {
+        cmd = { 'gopls' },
+        filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+        root_markers = { 'go.work', 'go.mod', '.git' },
+        capabilities = capabilities,
+      }
+
+      -- Python Language Server
+      vim.lsp.config.pylsp = {
+        cmd = { 'pylsp' },
+        filetypes = { 'python' },
+        root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
         capabilities = capabilities,
         settings = {
           pylsp = {
@@ -47,22 +60,28 @@ return {
           },
         },
       }
-      require("lspconfig").ccls.setup {
-        -- https://github.com/MaskRay/ccls/wiki/Project-Setup
+
+      -- C/C++ Language Server
+      vim.lsp.config.ccls = {
+        cmd = { 'ccls' },
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
+        root_markers = { 'compile_commands.json', '.ccls', '.git' },
+        capabilities = capabilities,
         init_options = {
           compilationDatabaseDirectory = "build",
         },
-        capabilities = capabilities
       }
-      -- require("lspconfig").helm_ls.setup { capabilities = capabilities }
-      -- require("lspconfig").postgres_lsp.setup { capabilities = capabilities }
-      -- require("lspconfig").sqlls.setup { capabilities = capabilities }
-      -- require("lspconfig").sqls.setup { capabilities = capabilities }
-      -- require("lspconfig").terraform_lsp.setup { capabilities = capabilities }
-      -- require("lspconfig").terraformls.setup { capabilities = capabilities }
-      -- require("lspconfig").bashls.setup { capabilities = capabilities }
-      -- require("lspconfig").dockerls.setup { capabilities = capabilities }
-      -- require("lspconfig").yamlls.setup { capabilities = capabilities }
+
+      -- Docker Language Server
+      vim.lsp.config.dockerls = {
+        cmd = { "docker-langserver", "--stdio" },
+        filetypes = { "dockerfile" },
+        root_markers = { "Dockerfile", ".git" },
+        capabilities = capabilities,
+      }
+
+      -- Enable LSP servers for matching filetypes
+      vim.lsp.enable({ 'lua_ls', 'gopls', 'pylsp', 'ccls', 'dockerls' })
 
       vim.keymap.set("i", "<C-o>", vim.lsp.buf.signature_help)
 
