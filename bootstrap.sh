@@ -52,25 +52,34 @@ if [ ! -f "$DOTFILES_ALIASES" ]; then
     exit 1
 fi
 
-# Ensure home aliases file exists (create it if it doesn't)
-if [ ! -f "$HOME_ALIASES" ]; then
-    echo "Home aliases file ($HOME_ALIASES) does not exist. Creating it..."
-    touch "$HOME_ALIASES"
+# Check if the files are different before copying
+if [ ! -f "$HOME_ALIASES" ] || ! cmp -s "$DOTFILES_ALIASES" "$HOME_ALIASES"; then
+    echo "Copying aliases from $DOTFILES_ALIASES to $HOME_ALIASES..."
+    cp "$DOTFILES_ALIASES" "$HOME_ALIASES"
+    echo "Aliases file updated."
+else
+    echo "Aliases file is already up to date."
 fi
 
-# Append only missing lines from $DOTFILES_ALIASES to $HOME_ALIASES
-MISSING_LINES=0
-while IFS= read -r LINE; do
-    if ! grep -Fxq "$LINE" "$HOME_ALIASES"; then
-        echo "$LINE" >> "$HOME_ALIASES"
-        ((MISSING_LINES++))
-    fi
-done < "$DOTFILES_ALIASES"
+#####################################################################
+# 2b. Copy PostgreSQL Config (.psqlrc)
+#####################################################################
 
-if [ $MISSING_LINES -eq 0 ]; then
-    echo "All aliases from dotfiles are already in $HOME_ALIASES."
+DOTFILES_PSQLRC="$DOTFILES_DIR/psql/.psqlrc"
+HOME_PSQLRC="$HOME/.psqlrc"
+
+# Only copy if the source file exists
+if [ -f "$DOTFILES_PSQLRC" ]; then
+    # Check if the files are different before copying
+    if [ ! -f "$HOME_PSQLRC" ] || ! cmp -s "$DOTFILES_PSQLRC" "$HOME_PSQLRC"; then
+        echo "Copying .psqlrc from $DOTFILES_PSQLRC to $HOME_PSQLRC..."
+        cp "$DOTFILES_PSQLRC" "$HOME_PSQLRC"
+        echo "PostgreSQL config (.psqlrc) updated."
+    else
+        echo "PostgreSQL config (.psqlrc) is already up to date."
+    fi
 else
-    echo "Added $MISSING_LINES missing alias(es) to $HOME_ALIASES."
+    echo "PostgreSQL config file ($DOTFILES_PSQLRC) not found. Skipping..."
 fi
 
 #####################################################################
