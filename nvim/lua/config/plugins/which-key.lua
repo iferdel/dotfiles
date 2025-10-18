@@ -8,7 +8,7 @@ return {
 
       wk.setup({
         preset = "modern",
-        delay = 300, -- delay before showing which-key popup (ms)
+        delay = 1500, -- delay before showing which-key popup (ms)
         icons = {
           mappings = true,
         },
