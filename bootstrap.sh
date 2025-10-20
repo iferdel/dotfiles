@@ -9,6 +9,7 @@ DOTFILES_DIR="$(pwd)"
 # Store pairs in a regular array in "SRC|DEST" format
 SYMLINK_PAIRS=(
   "$DOTFILES_DIR/nvim|$HOME/.config/nvim.iferdel.git"
+  "$DOTFILES_DIR/git/.gitconfig|$HOME/.gitconfig"
 )
 
 for PAIR in "${SYMLINK_PAIRS[@]}"; do
