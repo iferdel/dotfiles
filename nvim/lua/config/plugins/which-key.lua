@@ -17,6 +17,11 @@ return {
         },
       })
 
+      -- Register keymap groups
+      wk.add({
+        { "<space>fo", group = "Obsidian" },
+      })
+
       -- Optional: Add manual trigger to show all keymaps
       vim.keymap.set("n", "<space>?", function()
         require("which-key").show({ global = false })
