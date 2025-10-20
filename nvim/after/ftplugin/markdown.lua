@@ -34,6 +34,9 @@ vim.keymap.set("n", "<leader>co", function()
   elseif md.is_win() then
     -- On normal Windows, cmd /C start ...
     vim.fn.system("cmd.exe /C start " .. obsidian_url)
+  elseif md.is_linux() then
+    -- Native Linux uses xdg-open
+    vim.fn.system({ "xdg-open", obsidian_url })
   else
     -- Some other OS fallback
     vim.notify("OS not supported or could not be detected.", vim.log.levels.ERROR)

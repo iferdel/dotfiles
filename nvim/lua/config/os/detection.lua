@@ -15,4 +15,9 @@ function M.is_wsl()
   return uname:find("WSL") ~= nil
 end
 
+function M.is_linux()
+  -- Native Linux (not WSL, not macOS)
+  return (vim.fn.has("unix") == 1 and vim.fn.has("macunix") == 0 and not M.is_wsl())
+end
+
 return M
