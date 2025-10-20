@@ -31,7 +31,7 @@ local live_multigrep = function(opts)
       ---@diagnostic disable-next-line: deprecated -- automated with 'gra' shortcut in normal mode (lsp)
       return vim.tbl_flatten {
         args,
-        { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
+        { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--ignore-case" },
         opts.ignore_obsidian_files,
       }
     end,
