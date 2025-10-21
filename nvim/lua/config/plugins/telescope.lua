@@ -43,6 +43,10 @@ return {
           require('telescope.builtin').find_files(opts)
         end, { desc = "Browse plugin source files" })
 
+      vim.keymap.set("n", "<space>ft", function()
+        require('telescope.builtin').colorscheme({ enable_preview = true })
+      end, { desc = "Find and switch themes" })
+
       require('config.telescope.multigrep').setup()
     end
   }
