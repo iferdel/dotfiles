@@ -11,6 +11,16 @@ return {
           ["cmp.entry.get_documentation"] = true,
         },
       },
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            kind = "emsg",
+            find = "E162",
+          },
+          opts = { skip = true },
+        },
+      },
       presets = {
         bottom_search = true,
         long_message_to_split = true,

@@ -80,8 +80,51 @@ return {
         capabilities = capabilities,
       }
 
+      -- YAML Language Server (K8s, FluxCD, ArgoCD, Kustomize)
+      vim.lsp.config.yamlls = {
+        cmd = { "yaml-language-server", "--stdio" },
+        filetypes = { "yaml", "yaml.docker-compose" },
+        root_markers = { ".git", "kustomization.yaml", "kustomization.yml" },
+        capabilities = capabilities,
+        settings = {
+          yaml = {
+            validate = true,
+            completion = true,
+            hover = true,
+            schemaStore = {
+              enable = true,
+              url = "https://www.schemastore.org/api/json/catalog.json",
+            },
+            schemas = {
+              -- Kubernetes resources
+              kubernetes = {
+                "*.yaml",
+                "*.yml",
+              },
+              -- Kustomize
+              ["https://json.schemastore.org/kustomization.json"] = {
+                "kustomization.yaml",
+                "kustomization.yml",
+              },
+              -- FluxCD CRDs
+              ["https://raw.githubusercontent.com/fluxcd/flux2-schemas/main/all.json"] = {
+                "*flux*.yaml",
+                "*flux*.yml",
+                "clusters/**/*.yaml",
+                "clusters/**/*.yml",
+              },
+              -- ArgoCD (if needed)
+              ["https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/application-crd.yaml"] = {
+                "*application*.yaml",
+                "*appproject*.yaml",
+              },
+            },
+          },
+        },
+      }
+
       -- Enable LSP servers for matching filetypes
-      vim.lsp.enable({ 'lua_ls', 'gopls', 'pylsp', 'ccls', 'dockerls' })
+      vim.lsp.enable({ 'lua_ls', 'gopls', 'pylsp', 'ccls', 'dockerls', 'yamlls' })
 
       vim.keymap.set("i", "<C-o>", vim.lsp.buf.signature_help)
 
@@ -96,7 +139,12 @@ return {
               buffer = args.buf,
               callback = function()
                 vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-                vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' } }, apply = true }
+
+                -- Only run organizeImports for Go files
+                local filetype = vim.bo[args.buf].filetype
+                if filetype == 'go' or filetype == 'gomod' or filetype == 'gowork' then
+                  vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' } }, apply = true }
+                end
               end,
             })
           end

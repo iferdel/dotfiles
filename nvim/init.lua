@@ -22,7 +22,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move down while maintaining th
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move up while maintaining the center of the screen" })
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>zz", { desc = "while in quickfix, move down to next item" })
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>zz", { desc = "while in quickfix, move up to next item" })
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "in terminal mode, move from insert to normal mode" })
+vim.keymap.set("t", "<C-Space>", "<c-\\><c-n>", { desc = "in terminal mode, move from insert to normal mode" })
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -52,3 +52,7 @@ vim.keymap.set("n", "<space>st", function() -- opens a new terminal at the botto
 
   job_id = vim.b.terminal_job_id
 end, { desc = "Open bottom terminal" })
+
+vim.keymap.set("n", "<space>sc", function()
+  vim.cmd.term()
+end, { desc = "Open terminal in current window" })
