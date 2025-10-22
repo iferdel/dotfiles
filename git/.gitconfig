@@ -1,43 +1,43 @@
 [user]
-	email = ignaferdel@gmail.com
-	name = iferdel
+    email = ignaferdel@gmail.com
+    name = iferdel
 [core]
-	editor = /home/iferdel/bin/nvimf
-	autocrlf = false
-	pager = delta
-	preloadindex = true
+    editor = /home/iferdel/bin/nvimf
+    autocrlf = false
+    pager = delta
+    preloadindex = true
 [advice]
-	addEmptyPathspec = false
-	pushNonFastForward = false
-	statusHints = false
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints = false
 [alias]
-	st = status
-	lg = log --graph --all --abbrev-commit --decorate --format='%C(yellow)%h%C(reset) - %C(cyan)%ar%C(reset) %s %C(green)- %an%C(reset)%C(magenta)%d%C(reset)'
+    st = status
+    lg = log --graph --all --abbrev-commit --decorate --format='%C(yellow)%h%C(reset) - %C(cyan)%ar%C(reset) %s %C(green)- %an%C(reset)%C(magenta)%d%C(reset)'
 [pull]
-	rebase = true
+    rebase = true
 [merge]
-	conflictstyle = zdiff3
+    conflictstyle = zdiff3
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [rerere]
-	enabled = true
+    enabled = true
 [help]
-	autocorrect = immediate
+    autocorrect = immediate
 [diff]
-	algorithm = histogram
-	renames = copies
-	colorMoved = default
+    algorithm = histogram
+    renames = copies
+    colorMoved = default
 [status]
-	branch = true
-	showStash = true
-	showUntrackedFiles = all
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
 [interactive]
-	diffFilter = delta --color-only
-	singlekey = false
+    diffFilter = delta --color-only
+    singlekey = false
 [delta]
-	navigate = true
-	line-numbers = true
-	side-by-side = true
-        hyperlinks = true
-	plus-style = syntax "#003800"
-	plus-emph-style = syntax "#006000"
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+    hyperlinks = true
+    plus-style = syntax "#003800"
+    plus-emph-style = syntax "#006000"
