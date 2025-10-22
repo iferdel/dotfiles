@@ -10,6 +10,8 @@ DOTFILES_DIR="$(pwd)"
 SYMLINK_PAIRS=(
   "$DOTFILES_DIR/nvim|$HOME/.config/nvim.iferdel.git"
   "$DOTFILES_DIR/git/.gitconfig|$HOME/.gitconfig"
+  "$DOTFILES_DIR/kitty|$HOME/.config/kitty"
+  "$DOTFILES_DIR/ghostty|$HOME/.config/ghostty"
 )
 
 for PAIR in "${SYMLINK_PAIRS[@]}"; do
