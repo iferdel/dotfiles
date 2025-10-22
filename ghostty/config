@@ -1,0 +1,104 @@
+# Ghostty Configuration
+# ======================
+# Personal configuration for Ghostty terminal
+# Docs: https://ghostty.org/docs/config/reference
+
+# ============================================================================
+# Font Configuration
+# ============================================================================
+font-size = 22
+
+# ============================================================================
+# Theme & Colors
+# ============================================================================
+
+# ============================================================================
+# Transparency & Background
+# ============================================================================
+
+# Background transparency (0.0 = fully transparent, 1.0 = opaque)
+# Matching the transparent style from your Neovim config
+background-opacity = 0.95
+
+# ============================================================================
+# Window Appearance
+# ============================================================================
+
+# ============================================================================
+# Cursor Configuration
+# ============================================================================
+
+# ============================================================================
+# Mouse & Interaction
+# ============================================================================
+
+# Hide mouse cursor while typing
+mouse-hide-while-typing = true
+
+# ============================================================================
+# Clipboard
+# ============================================================================
+
+# Trim trailing spaces when copying
+clipboard-trim-trailing-spaces = true
+
+# Paste protection for safety
+clipboard-paste-protection = true
+
+# ============================================================================
+# Links
+# ============================================================================
+
+# Enable URL detection and opening
+link-url = true
+
+# ============================================================================
+# Shell Integration
+# ============================================================================
+
+# ============================================================================
+# Terminal Behavior
+# ============================================================================
+
+# Scrollback buffer (50MB)
+scrollback-limit = 52428800
+
+# Confirm before closing if there's a running process
+confirm-close-surface = true
+
+# ============================================================================
+# Splits & Panes
+# ============================================================================
+
+# ============================================================================
+# Keybindings
+# ============================================================================
+
+# Shift+Enter to insert newline (useful for multi-line commands)
+keybind = shift+enter=text:\n
+
+# Font size adjustment
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# Tab management
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+
+# Clear screen (using Ctrl+L like in bash)
+keybind = ctrl+l=clear_screen
+
+# Toggle fullscreen
+keybind = f11=toggle_fullscreen
+
+# ============================================================================
+# Performance & Rendering
+# ============================================================================
+
+# ============================================================================
+# Quality of Life
+# ============================================================================
+
