@@ -20,6 +20,45 @@ return {
           },
           opts = { skip = true },
         },
+        -- Skip yank messages
+        {
+          filter = {
+            event = "msg_show",
+            find = "%d+ lines yanked",
+          },
+          opts = { skip = true },
+        },
+        -- Skip "more lines" and "fewer lines" messages
+        {
+          filter = {
+            event = "msg_show",
+            find = "%d+ more lines",
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            event = "msg_show",
+            find = "%d+ fewer lines",
+          },
+          opts = { skip = true },
+        },
+        -- Skip "lines indented" messages
+        {
+          filter = {
+            event = "msg_show",
+            find = "%d+ lines indented",
+          },
+          opts = { skip = true },
+        },
+        -- Skip written messages
+        {
+          filter = {
+            event = "msg_show",
+            find = "written",
+          },
+          opts = { skip = true },
+        },
       },
       presets = {
         bottom_search = true,
