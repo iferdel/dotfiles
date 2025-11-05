@@ -50,12 +50,12 @@ return {
         settings = {
           pylsp = {
             plugins = {
-              pycodestyle = {
-                ignore = { "E203", "E501" },
-                maxLineLength = 100,
-              },
+              -- Disable default linters (ruff handles these)
+              pycodestyle = { enabled = false },
               pyflakes    = { enabled = false },
               mccabe      = { enabled = false },
+              -- Enable ruff for linting and formatting (requires: pip install python-lsp-ruff)
+              ruff        = { enabled = true },
             },
           },
         },
