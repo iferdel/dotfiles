@@ -23,6 +23,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move up while maintaining the 
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>zz", { desc = "while in quickfix, move down to next item" })
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>zz", { desc = "while in quickfix, move up to next item" })
 vim.keymap.set("t", "<C-Space>", "<c-\\><c-n>", { desc = "in terminal mode, move from insert to normal mode" })
+vim.keymap.set("n", "<F2>", ":tabnew<CR>", { desc = "new neovim buffer" })
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
