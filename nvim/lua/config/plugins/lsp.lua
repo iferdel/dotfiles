@@ -140,9 +140,9 @@ return {
               callback = function()
                 vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
 
-                -- Only run organizeImports for Go files
+                -- Run organizeImports for Go and Python files
                 local filetype = vim.bo[args.buf].filetype
-                if filetype == 'go' or filetype == 'gomod' or filetype == 'gowork' then
+                if filetype == 'go' or filetype == 'gomod' or filetype == 'gowork' or filetype == 'python' then
                   vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' } }, apply = true }
                 end
               end,
