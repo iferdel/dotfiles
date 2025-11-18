@@ -7,8 +7,8 @@ return {
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = vim.fn.has('win32') == 1
-          and 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install'
-          or 'make'
+            and 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release & cmake --build build --config Release --target install'
+            or 'make'
       }
     },
     config = function()
@@ -32,9 +32,9 @@ return {
 
       vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags, { desc = "Find help tags" })
       vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files, { desc = "Find files" })
-      vim.keymap.set("n", "<space>en",                                          -- en: edit neovim config 'dotfiles'
-        function()                                                              -- scope it into a function to add more customization
-          local opts = require('telescope.themes').get_ivy({                    -- define a local variable cwd wrapped with a telescope theme
+      vim.keymap.set("n", "<space>en",                       -- en: edit neovim config 'dotfiles'
+        function()                                           -- scope it into a function to add more customization
+          local opts = require('telescope.themes').get_ivy({ -- define a local variable cwd wrapped with a telescope theme
             cwd = vim.fn.stdpath("config"),
             hidden = true,
           })
