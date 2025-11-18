@@ -18,7 +18,7 @@
             "opacity": 95,
             "useAcrylic": false,
             "colorScheme": "Tokyo Night",
-            "cursorShape": "block",
+            "cursorShape": "filledBox",
             "scrollbarState": "hidden",
             "bellStyle": "none",
             "antialiasingMode": "cleartype"
