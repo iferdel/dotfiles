@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 
 #####################################################################
+# Dotfiles Bootstrap Script for macOS / Linux / WSL2
+#
+# IMPORTANT: This script has a Windows PowerShell equivalent at:
+#            bootstrap.ps1
+#
+# When modifying this script, please update bootstrap.ps1 to
+# maintain feature parity between platforms.
+#####################################################################
+
+#####################################################################
 # 1. Symlink Setup
 #####################################################################
 
