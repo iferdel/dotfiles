@@ -32,6 +32,10 @@ $SYMLINK_PAIRS = @(
     @{
         Src = Join-Path $DOTFILES_DIR "ghostty"
         Dest = Join-Path $env:USERPROFILE ".config\ghostty"
+    },
+    @{
+        Src = Join-Path $DOTFILES_DIR "windows-terminal\settings.json"
+        Dest = Join-Path $env:LOCALAPPDATA "Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
     }
 )
 

@@ -1,0 +1,95 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "copyOnSelect": true,
+    "copyFormatting": "none",
+    "trimBlockSelection": true,
+    "trimPaste": true,
+
+    "profiles": {
+        "defaults": {
+            "font": {
+                "face": "JetBrainsMono Nerd Font",
+                "size": 11
+            },
+            "opacity": 95,
+            "useAcrylic": false,
+            "colorScheme": "Tokyo Night",
+            "cursorShape": "block",
+            "scrollbarState": "hidden",
+            "bellStyle": "none",
+            "antialiasingMode": "cleartype"
+        },
+        "list": [
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "hidden": false
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "hidden": false
+            }
+        ]
+    },
+
+    "schemes": [
+        {
+            "name": "Tokyo Night",
+            "background": "#1a1b26",
+            "foreground": "#c0caf5",
+            "cursorColor": "#c0caf5",
+            "selectionBackground": "#7aa2f7",
+
+            "black": "#15161e",
+            "red": "#f7768e",
+            "green": "#9ece6a",
+            "yellow": "#e0af68",
+            "blue": "#7aa2f7",
+            "purple": "#bb9af7",
+            "cyan": "#7dcfff",
+            "white": "#a9b1d6",
+
+            "brightBlack": "#414868",
+            "brightRed": "#f7768e",
+            "brightGreen": "#9ece6a",
+            "brightYellow": "#e0af68",
+            "brightBlue": "#7aa2f7",
+            "brightPurple": "#bb9af7",
+            "brightCyan": "#7dcfff",
+            "brightWhite": "#c0caf5"
+        }
+    ],
+
+    "actions": [
+        { "command": "copy", "keys": "ctrl+shift+c" },
+        { "command": "paste", "keys": "ctrl+shift+v" },
+        { "command": { "action": "newTab" }, "keys": "ctrl+shift+t" },
+        { "command": { "action": "closeTab" }, "keys": "ctrl+shift+q" },
+        { "command": { "action": "nextTab" }, "keys": "ctrl+shift+right" },
+        { "command": { "action": "prevTab" }, "keys": "ctrl+shift+left" },
+        { "command": { "action": "newWindow" }, "keys": "ctrl+shift+n" },
+        { "command": "toggleFullscreen", "keys": "ctrl+shift+f11" },
+        { "command": { "action": "openSettings" }, "keys": "ctrl+shift+f2" },
+        { "command": { "action": "increaseFontSize" }, "keys": "ctrl+shift+plus" },
+        { "command": { "action": "decreaseFontSize" }, "keys": "ctrl+shift+minus" },
+        { "command": { "action": "resetFontSize" }, "keys": "ctrl+shift+0" },
+        { "command": { "action": "splitPane", "split": "horizontal" }, "keys": "ctrl+shift+d" },
+        { "command": { "action": "splitPane", "split": "vertical" }, "keys": "ctrl+shift+e" }
+    ],
+
+    "theme": "dark",
+    "showTabsInTitlebar": true,
+    "showTerminalTitleInTitlebar": true,
+    "alwaysShowTabs": true,
+    "tabWidthMode": "equal",
+    "startOnUserLogin": false,
+    "launchMode": "default",
+    "windowingBehavior": "useAnyExisting"
+}
