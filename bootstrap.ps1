@@ -19,7 +19,7 @@ $DOTFILES_DIR = $PSScriptRoot
 $SYMLINK_PAIRS = @(
     @{
         Src = Join-Path $DOTFILES_DIR "nvim"
-        Dest = Join-Path $env:USERPROFILE ".config\nvim.iferdel.git"
+        Dest = Join-Path $env:LOCALAPPDATA "nvim.iferdel.git"
     },
     @{
         Src = Join-Path $DOTFILES_DIR "git\.gitconfig"
