@@ -39,5 +39,8 @@
     line-numbers = true
     side-by-side = true
     hyperlinks = true
-    plus-style = syntax "#003800"
-    plus-emph-style = syntax "#006000"
+    syntax-theme = base16
+    minus-style = syntax "#2d202a"
+    minus-emph-style = syntax "#763842"
+    plus-style = syntax "#1a2b32"
+    plus-emph-style = syntax "#2b4a3f"
