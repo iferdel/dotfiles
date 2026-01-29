@@ -27,8 +27,8 @@ vim.keymap.set("t", "<F3>", "<c-\\><c-n>",
   { desc = "in terminal mode, move from insert to normal mode (Windows compatible)" })
 -- windows specific
 vim.keymap.set("n", "<F2>", ":tabnew<CR>", { desc = "new neovim buffer" })
-vim.keymap.set("n", "<C-h>", ":tabprevious<CR>", { desc = "new neovim buffer" })
-vim.keymap.set("n", "<C-j>", ":tabnext<CR>", { desc = "new neovim buffer" })
+vim.keymap.set("n", "<C-j>", ":tabprevious<CR>", { desc = "new neovim buffer" })
+vim.keymap.set("n", "<C-k>", ":tabnext<CR>", { desc = "new neovim buffer" })
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
