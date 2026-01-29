@@ -45,3 +45,6 @@
     plus-emph-style = syntax "#006000"
 [safe]
 	directory = C:/Users/489973/Workplace/dotfiles
+	directory = C:/Users/489973/Workplace/innolab
+	directory = C:/Users/489973/Workplace/maintenance-records-app
+	directory = C:/Users/489973/Workplace/maintenance-records-etl
