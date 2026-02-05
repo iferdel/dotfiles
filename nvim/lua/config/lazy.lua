@@ -37,7 +37,8 @@ require("lazy").setup(
         opts = {
           transparent = true,
         },
-        config = function()
+        config = function(_, opts)
+          require("tokyonight").setup(opts)
           vim.cmd.colorscheme "tokyonight"
           -- Enable cursorline for CursorLineNr to work
           vim.opt.cursorline = true
