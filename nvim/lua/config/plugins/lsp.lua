@@ -96,27 +96,10 @@ return {
               url = "https://www.schemastore.org/api/json/catalog.json",
             },
             schemas = {
-              -- Kubernetes resources
-              kubernetes = {
-                "*.yaml",
-                "*.yml",
-              },
               -- Kustomize
               ["https://json.schemastore.org/kustomization.json"] = {
                 "kustomization.yaml",
                 "kustomization.yml",
-              },
-              -- FluxCD CRDs
-              ["https://raw.githubusercontent.com/fluxcd/flux2-schemas/main/all.json"] = {
-                "*flux*.yaml",
-                "*flux*.yml",
-                "clusters/**/*.yaml",
-                "clusters/**/*.yml",
-              },
-              -- ArgoCD (if needed)
-              ["https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/application-crd.yaml"] = {
-                "*application*.yaml",
-                "*appproject*.yaml",
               },
             },
           },
