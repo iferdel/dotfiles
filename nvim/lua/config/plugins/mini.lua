@@ -1,24 +1,14 @@
 -- lua/config/plugins/mini.lua
 return {
   {
-    'echasnovski/mini.statusline',
-    version = false,
-    enabled = true,
-    config = function()
-      local statusline = require 'mini.statusline'
-      statusline.setup {
-        use_icons = true,
-      }
-    end
-  },
-  {
     'echasnovski/mini.icons',
     version = false,
     enabled = true,
     config = function()
-      require("mini.icons").setup({
-
-      })
+      local MiniIcons = require("mini.icons")
+      MiniIcons.setup({})
+      -- Drop-in replacement so plugins that require('nvim-web-devicons') resolve here
+      MiniIcons.mock_nvim_web_devicons()
     end,
   },
   {
