@@ -43,7 +43,7 @@ return {
 
       -- Python Language Server
       vim.lsp.config.pylsp = {
-        cmd = { 'pylsp' },
+        cmd = { 'uv', 'run', 'pylsp' },
         filetypes = { 'python' },
         root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
         capabilities = capabilities,

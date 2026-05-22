@@ -35,7 +35,7 @@ require("lazy").setup(
         lazy = false,
         priority = 1000,
         opts = {
-          transparent = true,
+          transparent = false,
         },
         config = function(_, opts)
           require("tokyonight").setup(opts)
@@ -44,9 +44,9 @@ require("lazy").setup(
           vim.opt.cursorline = true
           vim.opt.cursorlineopt = "number"
           -- Increase contrast for line numbers
-          vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff9e64", bold = true })  -- Current line number (bright orange)
-          vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#7aa2f7" })  -- Relative line numbers above cursor
-          vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#7aa2f7" })  -- Relative line numbers below cursor
+          vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff9e64", bold = true }) -- Current line number (bright orange)
+          vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#7aa2f7" })               -- Relative line numbers above cursor
+          vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#7aa2f7" })               -- Relative line numbers below cursor
         end
       },
       -- import your plugins

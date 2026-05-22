@@ -1,0 +1,23 @@
+{
+    "permissions": {
+        "allow": [
+            "Bash(go:*)",
+            "WebFetch(domain:github.com)",
+            "WebFetch(domain:www.data-to-viz.com)",
+            "mcp__playwright__browser_navigate",
+            "mcp__playwright__browser_snapshot",
+            "mcp__playwright__browser_take_screenshot",
+            "mcp__playwright__browser_console_messages",
+            "mcp__playwright__browser_click",
+            "mcp__playwright__browser_press_key",
+            "mcp__playwright__browser_wait_for"
+        ],
+        "deny": [
+            "Read(**./.env)"
+        ],
+        "ask": [
+            "Bash(npm install:*)",
+            "Bash(curl:*)"
+        ]
+    }
+}

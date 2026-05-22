@@ -1,0 +1,2 @@
+Use the /permissions command after starting Claude Code to add or remove tools from the allowlist. For example, you can add Edit to always allow file edits, Bash(git commit:*) to allow git commits, or mcp__puppeteer__puppeteer_navigate to allow navigating with the Puppeteer MCP server.
+Manually edit your .claude/settings.json or ~/.claude.json (we recommend checking the former into source control to share with your team).

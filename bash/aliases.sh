@@ -1,5 +1,11 @@
 alias nvimf='NVIM_APPNAME=nvim.iferdel.git nvim'
 
+alias k='kubectl'
+alias t='talosctl'
+alias acd='argocd'
+alias fcd='flux'
+alias d='docker'
+
 # Docker ps in card/expanded view (like psql \x auto)
 alias dpscard='docker ps --format json --no-trunc | jq -r "\"╔═══════════════════════════════════════════════════════════════════════════════\n\" + \"║ \u001b[1;36mContainer:\u001b[0m \u001b[1;33m\(.Names)\u001b[0m\n\" + \"╠═══════════════════════════════════════════════════════════════════════════════\n\" + \"║ \u001b[1;34mID:\u001b[0m      \(.ID)\n\" + \"║ \u001b[1;34mImage:\u001b[0m   \(.Image)\n\" + \"║ \u001b[1;34mStatus:\u001b[0m  \u001b[1;32m\(.Status)\u001b[0m\n\" + \"║ \u001b[1;34mPorts:\u001b[0m   \(if .Ports == \"\" then \"(none)\" else .Ports end)\n\" + \"║ \u001b[1;34mCommand:\u001b[0m \(.Command)\n\" + \"╚═══════════════════════════════════════════════════════════════════════════════\n\""'
 

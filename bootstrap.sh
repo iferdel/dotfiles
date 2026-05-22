@@ -56,7 +56,7 @@ done
 # 2. Copy Aliases from Dotfiles to Home Aliases File
 #####################################################################
 
-DOTFILES_ALIASES="$DOTFILES_DIR/bash/aliases"
+DOTFILES_ALIASES="$DOTFILES_DIR/bash/aliases.sh"
 HOME_ALIASES="$HOME/.bash_aliases"
 
 # Ensure the dotfiles' aliases file exists
