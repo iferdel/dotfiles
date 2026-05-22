@@ -1,7 +1,19 @@
 # dotfiles
 
-This repository houses my personal dotfiles for Neovim, Bash, Git, and Kitty terminal.
+This repository houses my personal dotfiles for Neovim, Bash, Git, Kitty, Ghostty, and PostgreSQL (`psql`).
 - tmux is not in the list since neovim covers what tmux is capable of and thus reducing the overwelming complexity of having more than needed keymaps and between two pieces of software.
+
+## What's Included
+
+- `nvim/` - Neovim config (custom `NVIM_APPNAME=nvim.iferdel.git` instance)
+- `bash/` - Shell aliases and completions
+- `git/` - Git configuration
+- `kitty/` - Kitty terminal config
+- `ghostty/` - Ghostty terminal config
+- `psql/` - PostgreSQL client config (`.psqlrc`)
+- `vim/` - Portable `.vimrc` for SSH / foreign servers, plus a Dockerfile to test it
+- `windows-terminal/` - Windows Terminal settings
+- `.claude/` - Claude Code settings, commands, and workflows
 
 ## Installation
 
@@ -40,3 +52,5 @@ This repository houses my personal dotfiles for Neovim, Bash, Git, and Kitty ter
 ```bash
 brew install git-delta
 ```
+
+`go.sh` is an optional helper that installs Go tooling (goose, sqlc).

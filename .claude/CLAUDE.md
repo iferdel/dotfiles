@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Personal dotfiles repository managing Neovim, Bash, Git, Kitty, and Ghostty configurations. Uses symlinks to install configurations without modifying files directly.
+Personal dotfiles repository managing Neovim, Bash, Git, Kitty, Ghostty, and PostgreSQL (`psql`) configurations. Also includes a portable `.vimrc` (`vim/`) for SSH/foreign servers and Windows Terminal settings (`windows-terminal/`). Uses symlinks to install configurations without modifying files directly (`.psqlrc` and bash aliases are copied, not symlinked).
 
 ## IMPORTANT: Script Execution Policy
 
@@ -23,7 +23,8 @@ Personal dotfiles repository managing Neovim, Bash, Git, Kitty, and Ghostty conf
   - Creates symlink from `ghostty/` to `~/.config/ghostty`
   - Symlinks `git/.gitconfig` to `~/.gitconfig`
   - Copies bash aliases to `~/.bash_aliases`
-  - Creates `~/bin/nvimf` wrapper for custom Neovim instance
+  - Copies `psql/.psqlrc` to `~/.psqlrc`
+  - Creates `~/bin/nvimf` wrapper for custom Neovim instance, adds `~/bin` to PATH
   - Sets Git core.editor to nvimf
   - Platform-aware (macOS uses zsh, WSL2/Linux uses bash)
 
@@ -35,8 +36,11 @@ Personal dotfiles repository managing Neovim, Bash, Git, Kitty, and Ghostty conf
 
 ### Structure
 - `nvim/init.lua` - Entry point, loads lazy.nvim and sets global options/keymaps
-- `nvim/lua/config/lazy.lua` - Plugin manager bootstrap and configuration
+- `nvim/lua/config/lazy.lua` - Plugin manager bootstrap and tokyonight setup
 - `nvim/lua/config/plugins/*.lua` - Individual plugin configurations (lazy.nvim auto-imports)
+- `nvim/lua/config/lang/go.lua` - Go utilities menu (loaded directly from init.lua)
+- `nvim/lua/config/os/detection.lua` - OS detection helpers (mac/win/wsl/linux)
+- `nvim/lua/config/telescope/multigrep.lua` - Custom telescope live multigrep picker
 - `nvim/after/ftplugin/*.lua` - Filetype-specific settings (auto-loaded by vim on filetype detection)
 - `nvim/plugin/*.lua` - Custom plugins (floaterminal, menu)
 
@@ -44,27 +48,36 @@ Personal dotfiles repository managing Neovim, Bash, Git, Kitty, and Ghostty conf
 - Uses `NVIM_APPNAME=nvim.iferdel.git` for namespace isolation (run via `nvimf` alias)
 - Leader key: `<space>`, local leader: `\`
 - Plugin manager: lazy.nvim
-- Colorscheme: tokyonight (transparent mode enabled)
-- LSP servers configured: lua_ls, gopls, pylsp, ccls
+- Colorscheme: tokyonight (transparent mode disabled; custom line-number highlights)
+- LSP servers configured: lua_ls, gopls, pylsp, ccls, dockerls, yamlls
+  - Uses Neovim 0.11+ native `vim.lsp.config` / `vim.lsp.enable` API
+  - pylsp launched via `uv run pylsp`, with ruff enabled for lint/format
+  - yamlls uses SchemaStore + Kustomize schemas
 - Auto-format on save when LSP supports formatting
-- Auto-organize imports on save for Go files
+- Auto-organize imports on save for Go and Python files
 
 ### Key Plugins
-- blink.cmp - Autocompletion with LSP integration
+- blink.cmp - Autocompletion with LSP integration (disabled for markdown)
 - telescope.nvim - Fuzzy finder
 - oil.nvim - Directory viewer (not a file tree)
 - harpoon - File navigation
-- dbee - Database UI
+- dbee - Database UI (with vim-dadbod-completion for SQL)
 - nvim-dap - Debugging
 - mini.nvim - Collection of small utilities
-- diffview.nvim - Git diff viewer
+- git-conflict.nvim - Merge conflict resolution
+- bufferline.nvim - Tab-style bufferline (mode = "tabs")
+- lualine.nvim - Statusline (tokyonight theme, global statusline)
+- which-key.nvim - Keymap hint popups
+- treesitter - Syntax highlighting/parsing
 - noice.nvim - UI enhancements
 
 ### Custom Features
 - `<space>st` - Open bottom terminal (10 lines high)
-- `<space>gs` - Telescope picker for Go stdlib source code
-- `<space>gm` - Telescope picker for Go modules in GOPATH
-- `<leader>gss` - Open Go Cookbook in browser
+- `<space>sc` - Open terminal in current window
+- `<space>gos` - Telescope picker for Go stdlib source code (GOROOT)
+- `<space>gom` - Telescope picker for Go modules in GOPATH
+- `<space>goc` - Open Go Cookbook in browser
+  - Go utilities defined in `lua/config/lang/go.lua`; falls back to `vim.ui.select` if which-key is absent
 - `<space><space>x` - Execute entire Lua file
 - `<space>x` - Execute current line (normal mode) or selection (visual mode)
 
@@ -110,7 +123,11 @@ Platform-specific shell config sourcing handled by bootstrap.sh (user runs manua
 
 ## Git Configuration
 
-Git editor set to `~/bin/nvimf` wrapper by bootstrap.sh (user runs manually).
+Config in `git/.gitconfig` (symlinked to `~/.gitconfig`). Git editor set to `~/bin/nvimf` wrapper by bootstrap.sh (user runs manually). Uses `delta` as pager/diff filter, `histogram` diff algorithm, `zdiff3` conflict style, rebase-on-pull, and `rerere` enabled.
+
+## PostgreSQL Configuration
+
+`psql/.psqlrc` copied to `~/.psqlrc` by bootstrap.sh. Enables expanded auto display, verbose errors, and null display formatting.
 
 ## Kitty Terminal Configuration
 
@@ -153,5 +170,5 @@ bootstrap.sh detects platform via OSTYPE and /proc/version checks.
 
 ## Workarounds
 
-- Treesitter compatibility: `vim.hl = vim.highlight` workaround for neovim issue #31675 (init.lua:9)
-- Terminal insert mode exit: `<esc><esc>` mapped to `<C-\><C-n>`
+- Treesitter compatibility: `vim.hl = vim.highlight` workaround for neovim issue #31675 (init.lua:10)
+- Terminal insert mode exit: `<C-Space>` (and `<F3>` for Windows compatibility) mapped to `<C-\><C-n>`
