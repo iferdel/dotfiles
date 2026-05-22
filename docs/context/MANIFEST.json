@@ -1,0 +1,29 @@
+{
+  "folder": "/docs/context",
+  "publication_status": "draft",
+  "markdown_files": [
+    "00_project_summary.md",
+    "01_problem_statement.md",
+    "02_product_principles.md",
+    "03_system_architecture.md",
+    "04_install_flow.md",
+    "05_data_model.md",
+    "06_risk_model.md",
+    "07_data_handling.md",
+    "08_assumptions.md",
+    "09_scope.md",
+    "10_roadmap.md",
+    "11_scenarios.md",
+    "12_glossary.md",
+    "13_publication_checklist.md",
+    "14_issue_reporting.md",
+    "15_implementation_notes.md",
+    "16_install_contract.md",
+    "README.md"
+  ],
+  "safety_notes": [
+    "All examples should use synthetic placeholder values.",
+    "Manual review against 13_publication_checklist.md is required before publishing.",
+    "Rename slot files freely if a generic name reads poorly for this project; the slot number and ROLE are the contract."
+  ]
+}
