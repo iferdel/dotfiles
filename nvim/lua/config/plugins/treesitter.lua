@@ -25,5 +25,19 @@ return {
         },
       }
     end,
-  }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      enable = true,
+      max_lines = 3,            -- cap sticky context at 3 rows
+      min_window_height = 20,   -- skip it in short splits
+      line_numbers = true,      -- show source line numbers on the sticky rows
+      multiwindow = false,
+      mode = "cursor",          -- context follows the cursor
+      trim_scope = "outer",     -- when over max_lines, drop the outermost scope
+      separator = "─",          -- thin underline below the context block
+    },
+  },
 }
