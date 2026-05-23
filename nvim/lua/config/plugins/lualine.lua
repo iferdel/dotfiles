@@ -16,13 +16,20 @@ return {
           lualine_c = { { "filename", path = 1 } }, -- relative path
           lualine_x = {
             {
+              function()
+                local reg = vim.fn.reg_recording()
+                return reg == "" and "" or "REC @" .. reg
+              end,
+              color = { fg = "#ff9e64", gui = "bold" },
+            },
+            {
               "diagnostics",
               sources = { "nvim_lsp" },
               symbols = { error = " ", warn = " ", info = " ", hint = " " },
             },
           },
-          lualine_y = { "filetype" },
-          lualine_z = { "location", "progress" },
+          lualine_y = {},
+          lualine_z = { "location" },
         },
         inactive_sections = {
           lualine_a = {},
