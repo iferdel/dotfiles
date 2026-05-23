@@ -21,7 +21,7 @@ return {
       signature = {
         enabled = true,
         window = {
-          border = "single",
+          border = "rounded",
         },
       },
 
@@ -29,7 +29,7 @@ return {
         menu = {
           enabled = true,
           max_height = 5,
-          border = 'single',
+          border = 'rounded',
           scrolloff = 1,
           scrollbar = true,
 
@@ -63,7 +63,7 @@ return {
             min_width = 8,
             max_width = 50,
             max_height = 15,
-            border = 'single',
+            border = 'rounded',
           },
         },
 

@@ -6,6 +6,7 @@ vim.opt.clipboard = "unnamedplus" -- paste whatever is in the clipboard buffer g
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 5         -- not too much since it generates a strange feeling to the eye
 vim.opt.signcolumn = "yes"        -- fixed-width gutter, no jitter when diagnostics toggle
+vim.opt.winborder = "rounded"     -- default border for floats (Nvim 0.11+)
 vim.opt.fillchars = {
   eob       = " ",                -- hide ~ on empty lines past end of buffer
   vert      = "│",                -- thin vertical window separator
