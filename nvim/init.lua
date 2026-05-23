@@ -5,15 +5,17 @@ vim.opt.shiftwidth = 4            -- indentation
 vim.opt.clipboard = "unnamedplus" -- paste whatever is in the clipboard buffer globally
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 5         -- not too much since it generates a strange feeling to the eye
+vim.opt.signcolumn = "yes"        -- fixed-width gutter, no jitter when diagnostics toggle
+vim.opt.fillchars = {
+  eob       = " ",                -- hide ~ on empty lines past end of buffer
+  vert      = "│",                -- thin vertical window separator
+  fold      = " ",
+  foldsep   = " ",
+  diff      = "╱",                -- diagonal fill for diff
+}
 
 -- workaround for https://github.com/neovim/neovim/issues/31675 Treesitter situation
 vim.hl = vim.highlight
-
--- changes the higlight (color) of the function.builtin. Lookable at Inspect and treesitter queries for each language it could work with either global function.builtin or locally to lua (special case for nvim) function.builtin.lua
-vim.cmd [[ hi @function.builtin.lua guifg=yellow ]]
-
--- adds a line to show separation between windows
-vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#ffffff' })
 
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "execute whole file" })
 vim.keymap.set("n", "<space>x", ":.lua<CR>", { desc = "execute current line" })

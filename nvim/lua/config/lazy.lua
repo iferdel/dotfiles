@@ -35,18 +35,23 @@ require("lazy").setup(
         lazy = false,
         priority = 1000,
         opts = {
-          transparent = false,
+          style          = "moon",
+          transparent    = false,
+          dim_inactive   = true,
+          lualine_bold   = true,
+          on_highlights = function(hl, c)
+            hl.CursorLineNr             = { fg = c.orange, bold = true }
+            hl.LineNrAbove              = { fg = c.blue }
+            hl.LineNrBelow              = { fg = c.blue }
+            hl.WinSeparator             = { fg = c.fg_gutter }
+            hl["@function.builtin.lua"] = { fg = c.yellow }
+          end,
         },
         config = function(_, opts)
           require("tokyonight").setup(opts)
           vim.cmd.colorscheme "tokyonight"
-          -- Enable cursorline for CursorLineNr to work
           vim.opt.cursorline = true
           vim.opt.cursorlineopt = "number"
-          -- Increase contrast for line numbers
-          vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff9e64", bold = true }) -- Current line number (bright orange)
-          vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#7aa2f7" })               -- Relative line numbers above cursor
-          vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#7aa2f7" })               -- Relative line numbers below cursor
         end
       },
       -- import your plugins
