@@ -8,6 +8,7 @@ Your task is to help the user generate a commit message and commit the changes u
 ## Guidelines
 
 - DO NOT add any ads such as "Generated with [Claude Code](https://claude.ai/code)" or "Generated with GitHub Copilot".
+- DO NOT add a `Co-authored-by` trailer (or any other trailer) to the commit message.
 - Only generate the message for staged files/changes (inspect with `git --no-pager diff --staged`).
 - Don't add any files using `git add`. The user will decide what to add.
 - Follow the rules below for the commit message.
