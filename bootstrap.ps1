@@ -216,6 +216,41 @@ else {
 }
 
 #####################################################################
+# 2d. Copy GitHub Copilot CLI personal skills to ~/.copilot/skills
+#####################################################################
+
+# These are the CLI equivalent of the VS Code prompt files above:
+# personal (user-level) skills the `copilot` CLI loads in every repo.
+
+$DOTFILES_SKILLS = Join-Path $DOTFILES_DIR ".copilot\skills"
+$COPILOT_SKILLS = Join-Path $env:USERPROFILE ".copilot\skills"
+
+if (Test-Path $DOTFILES_SKILLS) {
+    $skillDirs = Get-ChildItem -Path $DOTFILES_SKILLS -Directory
+
+    if ($skillDirs.Count -eq 0) {
+        Write-Host "No skill directories found in $DOTFILES_SKILLS. Skipping Copilot CLI skills..."
+    }
+    else {
+        if (-not (Test-Path $COPILOT_SKILLS)) {
+            Write-Host "Creating Copilot CLI skills directory: $COPILOT_SKILLS"
+            New-Item -ItemType Directory -Force -Path $COPILOT_SKILLS | Out-Null
+        }
+
+        foreach ($skill in $skillDirs) {
+            Write-Host "Copying Copilot CLI skill '$($skill.Name)' to $COPILOT_SKILLS..."
+            Copy-Item -Path $skill.FullName -Destination $COPILOT_SKILLS -Recurse -Force
+            Write-Host "Copilot CLI skill '$($skill.Name)' updated." -ForegroundColor Green
+        }
+
+        Write-Host "Note: run '/skills reload' in an active copilot session to pick these up." -ForegroundColor Yellow
+    }
+}
+else {
+    Write-Host "Copilot CLI skills directory ($DOTFILES_SKILLS) not found. Skipping..."
+}
+
+#####################################################################
 # 3. Set Git Editor to nvimf
 #####################################################################
 
