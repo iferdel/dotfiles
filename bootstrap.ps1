@@ -162,6 +162,60 @@ else {
 }
 
 #####################################################################
+# 2c. Copy GitHub Copilot prompt files to VS Code user prompts
+#####################################################################
+
+$DOTFILES_PROMPTS = Join-Path $DOTFILES_DIR ".github\prompts"
+$VSCODE_PROMPTS = Join-Path $env:APPDATA "Code\User\prompts"
+
+# Only proceed if the source directory exists and has prompt files
+if (Test-Path $DOTFILES_PROMPTS) {
+    $promptFiles = Get-ChildItem -Path $DOTFILES_PROMPTS -Filter "*.prompt.md" -File
+
+    if ($promptFiles.Count -eq 0) {
+        Write-Host "No *.prompt.md files found in $DOTFILES_PROMPTS. Skipping Copilot prompts..."
+    }
+    else {
+        # Ensure the destination directory exists
+        if (-not (Test-Path $VSCODE_PROMPTS)) {
+            Write-Host "Creating VS Code user prompts directory: $VSCODE_PROMPTS"
+            New-Item -ItemType Directory -Force -Path $VSCODE_PROMPTS | Out-Null
+        }
+
+        foreach ($prompt in $promptFiles) {
+            $dest = Join-Path $VSCODE_PROMPTS $prompt.Name
+
+            # Check if files are different before copying
+            $needsCopy = $false
+            if (-not (Test-Path $dest)) {
+                $needsCopy = $true
+            }
+            else {
+                $srcHash = (Get-FileHash $prompt.FullName).Hash
+                $destHash = (Get-FileHash $dest).Hash
+                if ($srcHash -ne $destHash) {
+                    $needsCopy = $true
+                }
+            }
+
+            if ($needsCopy) {
+                Write-Host "Copying Copilot prompt '$($prompt.Name)' to $VSCODE_PROMPTS..."
+                Copy-Item -Path $prompt.FullName -Destination $dest -Force
+                Write-Host "Copilot prompt '$($prompt.Name)' updated." -ForegroundColor Green
+            }
+            else {
+                Write-Host "Copilot prompt '$($prompt.Name)' is already up to date."
+            }
+        }
+
+        Write-Host "Note: enable `"chat.promptFiles`": true in VS Code settings to use these." -ForegroundColor Yellow
+    }
+}
+else {
+    Write-Host "Copilot prompts directory ($DOTFILES_PROMPTS) not found. Skipping..."
+}
+
+#####################################################################
 # 3. Set Git Editor to nvimf
 #####################################################################
 
