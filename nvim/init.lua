@@ -18,6 +18,19 @@ vim.opt.fillchars = {
 -- workaround for https://github.com/neovim/neovim/issues/31675 Treesitter situation
 vim.hl = vim.highlight
 
+-- On Windows, use PowerShell (pwsh 7+ if available, otherwise built-in powershell) for :terminal
+local os_detect = require("config.os.detection")
+if os_detect.is_win() then
+  local shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell"
+  vim.opt.shell = shell
+  vim.opt.shellcmdflag =
+  "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+  vim.opt.shellredir = "2>&1 | %%{ \"$_\" } | Out-File %s; exit $LastExitCode"
+  vim.opt.shellpipe = "2>&1 | %%{ \"$_\" } | Tee-Object %s; exit $LastExitCode"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+end
+
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "execute whole file" })
 vim.keymap.set("n", "<space>x", ":.lua<CR>", { desc = "execute current line" })
 vim.keymap.set("v", "<space>x", ":lua<CR>", { desc = "execute selected section" })
